@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KNG Cargo | Transporte nacional e internacional</title>
+  <meta name="description" content="Soluciones logísticas de transporte nacional e internacional para España, Francia y Europa." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b2b55" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KNG Cargo | Transporte nacional e internacional" />
+  <meta property="og:description" content="Soluciones logísticas de transporte nacional e internacional para España, Francia y Europa." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <style>
+    :root {
+      --navy: #0b2b55;
+      --navy-2: #123f73;
+      --blue: #1d5fb3;
+      --text: #1d3654;
+      --muted: #617287;
+      --bg: #f3f6fa;
+      --line: #d9e1ea;
+      --white: #ffffff;
+      --shadow: 0 24px 60px rgba(10, 31, 56, 0.10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fbff 0%, #f3f6fa 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea { font: inherit; }
+
+    .container { width: min(1320px, calc(100% - 52px)); margin: 0 auto; }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(11,43,85,.06);
+    }
+    .nav {
+      min-height: 88px; display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center; gap: 28px;
+    }
+    .brand img { width: 150px; height: auto; object-fit: contain; }
+    .navlinks {
+      display: flex; align-items: center; gap: 28px;
+      min-width: 0; overflow: auto; scrollbar-width: none;
+    }
+    .navlinks::-webkit-scrollbar { display: none; }
+    .navlinks a {
+      position: relative; white-space: nowrap;
+      font-size: 14px; font-weight: 650; color: #4f6277;
+      padding: 34px 0 30px;
+    }
+    .navlinks a.active::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 18px;
+      height: 3px; border-radius: 99px; background: var(--navy);
+    }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang { font-size: 14px; font-weight: 700; color: #3f546c; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 999px; border: 1px solid transparent;
+      font-size: 14px; font-weight: 800; transition: .2s ease; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--navy); color: white; padding: 15px 28px;
+      box-shadow: 0 12px 28px rgba(11,43,85,.16);
+    }
+    .btn-primary:hover { transform: translateY(-1px); background: #103660; }
+    .btn-outline { background: rgba(255,255,255,.75); color: var(--navy); border: 1px solid #bac9d8; padding: 15px 28px; }
+    .btn-outline:hover { background: white; }
+
+    .hero {
+      position: relative; overflow: hidden; min-height: 620px;
+      background-image:
+        linear-gradient(90deg, rgba(246,249,253,.98) 0%, rgba(246,249,253,.95) 26%, rgba(246,249,253,.78) 40%, rgba(246,249,253,.38) 56%, rgba(246,249,253,0) 70%),
+        url("assets/hero.webp");
+      background-size: cover; background-position: center center;
+    }
+    .hero-inner { min-height: 620px; display: flex; align-items: center; padding: 48px 0 54px; }
+    .hero-copy { max-width: 610px; }
+    .eyebrow {
+      display: inline-block; font-size: 12px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .22em;
+      color: #5f7895; margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0; font-size: clamp(58px, 7vw, 88px);
+      line-height: .96; letter-spacing: -.06em;
+      color: var(--navy); font-weight: 850;
+    }
+    .hero-copy p {
+      margin: 24px 0 30px; max-width: 520px;
+      font-size: 19px; line-height: 1.5; color: #50647d;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .trustbar {
+      background: rgba(255,255,255,.92);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr auto;
+      align-items: center;
+      min-height: 92px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0 18px; min-height: 92px;
+      border-right: 1px solid var(--line);
+    }
+    .trust-icon { width: 38px; height: 38px; display: grid; place-items: center; color: var(--navy); flex: 0 0 auto; }
+    .trust-item span { font-size: 14px; font-weight: 600; color: #3f5570; line-height: 1.35; }
+    .trust-slogan {
+      padding-left: 22px; font-size: 14px; font-weight: 800;
+      color: var(--navy); line-height: 1.35; letter-spacing: .01em; text-transform: uppercase;
+    }
+
+    section { padding: 56px 0; }
+    .section-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 24px; margin-bottom: 34px;
+    }
+    .section-tag {
+      font-size: 12px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .2em; color: #6a8099; margin-bottom: 10px;
+    }
+    .section-header h2 {
+      margin: 0 0 10px; font-size: clamp(40px, 5vw, 66px);
+      line-height: .98; letter-spacing: -.05em; color: var(--navy); max-width: 640px;
+    }
+    .section-header h2 .accent { color: var(--blue); }
+    .section-header p { margin: 0; max-width: 620px; font-size: 17px; color: #65778b; line-height: 1.55; }
+    .section-link {
+      white-space: nowrap; align-self: center; font-size: 16px; font-weight: 700;
+      color: var(--blue); display: inline-flex; align-items: center; gap: 10px;
+      border-bottom: 2px solid rgba(29,95,179,.28); padding-bottom: 6px;
+    }
+
+    .services { background: linear-gradient(180deg, #f3f6fa 0%, #eef3f8 100%); }
+    .card-grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .service-card {
+      background: rgba(255,255,255,.92); border: 1px solid #dde5ee;
+      border-radius: 14px; padding: 28px 18px 24px;
+      text-align: center; box-shadow: 0 8px 22px rgba(11,43,85,.03); min-height: 220px;
+    }
+    .service-icon { width: 60px; height: 60px; margin: 0 auto 18px; color: var(--blue); }
+    .service-card h3 { margin: 0 0 12px; font-size: 18px; line-height: 1.25; color: var(--navy); }
+    .service-card p { margin: 0; font-size: 14px; line-height: 1.55; color: #68798d; }
+
+    .coverage-wrap {
+      overflow: hidden; background: linear-gradient(135deg, #062142 0%, #0b3668 75%);
+      color: white; box-shadow: var(--shadow);
+    }
+    .coverage-grid {
+      display: grid; grid-template-columns: 1fr 1.15fr .62fr;
+      align-items: stretch; min-height: 350px;
+    }
+    .coverage-copy {
+      padding: 42px 36px 40px 36px; display: flex; flex-direction: column; justify-content: center;
+    }
+    .coverage-copy .section-tag { color: #a9bfd7; margin-bottom: 12px; }
+    .coverage-copy h3 {
+      margin: 0 0 16px; font-size: clamp(40px, 4.5vw, 66px);
+      line-height: .98; letter-spacing: -.05em; color: #fff;
+    }
+    .coverage-copy p {
+      margin: 0 0 28px; color: #d6e1ed; font-size: 17px; line-height: 1.55; max-width: 420px;
+    }
+    .coverage-copy .btn-outline {
+      width: fit-content; color: white; border-color: rgba(255,255,255,.45); background: transparent;
+    }
+    .coverage-copy .btn-outline:hover { background: rgba(255,255,255,.08); }
+    .coverage-image {
+      position: relative; min-height: 350px;
+      background-image:
+        linear-gradient(180deg, rgba(5,22,44,.08), rgba(5,22,44,.08)),
+        url("assets/coverage.webp");
+      background-size: cover; background-position: center center;
+    }
+    .coverage-stats {
+      padding: 32px 30px; border-left: 1px solid rgba(255,255,255,.12);
+      display: flex; flex-direction: column; justify-content: center; gap: 22px;
+    }
+    .coverage-stat { padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.16); }
+    .coverage-stat:last-child { padding-bottom: 0; border-bottom: none; }
+    .coverage-stat strong { display: block; font-size: 22px; font-weight: 850; margin-bottom: 4px; color: white; }
+    .coverage-stat span { display: block; font-size: 14px; color: #d9e2ec; line-height: 1.45; }
+
+    .dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .feature-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 240px;
+      border-radius: 12px;
+      border: 1px solid #dbe3ec;
+      background: #eef3f8;
+      box-shadow: 0 10px 24px rgba(11,43,85,.05);
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: stretch;
+    }
+    .feature-copy {
+      padding: 26px 24px 24px 24px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: linear-gradient(90deg, rgba(248,251,255,.97) 0%, rgba(248,251,255,.95) 78%, rgba(248,251,255,.12) 100%);
+    }
+    .feature-card.dark .feature-copy {
+      background: linear-gradient(90deg, rgba(7,34,64,.94) 0%, rgba(7,34,64,.88) 78%, rgba(7,34,64,.20) 100%);
+      color: white;
+    }
+    .feature-copy h3 {
+      margin: 0 0 8px; font-size: 28px; line-height: 1.05;
+      letter-spacing: -.04em; color: inherit;
+    }
+    .feature-copy p {
+      margin: 0 0 22px; font-size: 16px; line-height: 1.45;
+      color: inherit; opacity: .82; max-width: 300px;
+    }
+    .feature-copy .btn { padding: 13px 20px; width: fit-content; }
+    .feature-card.dark .btn-outline {
+      background: transparent; border-color: rgba(255,255,255,.55); color: white;
+    }
+    .feature-image {
+      min-height: 240px;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .feature-image.warehouse { background-image: url("assets/warehouse.webp"); background-position: 58% center; }
+    .feature-image.network { background-image: linear-gradient(180deg, rgba(7,26,50,.08), rgba(7,26,50,.08)), url("assets/network.webp"); background-position: center center; }
+
+    footer {
+      background: rgba(255,255,255,.75);
+      border-top: 1px solid #d9e1ea;
+      margin-top: 10px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.35fr .95fr .9fr .9fr .85fr;
+      gap: 0; align-items: start; padding: 34px 0 20px;
+    }
+    .footer-col {
+      padding: 0 24px; min-height: 126px; border-right: 1px solid var(--line);
+    }
+    .footer-col:last-child { border-right: none; }
+    .footer-brand img { width: 155px; margin-bottom: 10px; }
+    .footer-small {
+      font-size: 12px; line-height: 1.45; color: #7b8b9b;
+      text-transform: uppercase; font-weight: 700; letter-spacing: .03em;
+    }
+    .footer-list, .footer-contact {
+      display: grid; gap: 10px; font-size: 15px; color: #5d7084; line-height: 1.45;
+    }
+    .social-row { display: flex; gap: 12px; margin-bottom: 12px; }
+    .social {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--navy); color: white; display: grid; place-items: center;
+      font-size: 15px; font-weight: 800;
+    }
+    .follow { font-size: 15px; color: #5d7084; line-height: 1.45; }
+    .footer-bottom {
+      border-top: 1px solid var(--line); padding: 18px 0 26px;
+      display: flex; justify-content: space-between; gap: 20px;
+      color: #788899; font-size: 13px;
+    }
+    .footer-bottom nav { display: flex; gap: 20px; flex-wrap: wrap; }
+
+    .i svg, .service-icon svg { width: 100%; height: 100%; display: block; }
+
+    @media (max-width: 1200px) {
+      .card-grid-5 { grid-template-columns: repeat(3, 1fr); }
+      .coverage-grid { grid-template-columns: 1fr; }
+      .coverage-image { min-height: 280px; }
+      .coverage-stats {
+        border-left: none; border-top: 1px solid rgba(255,255,255,.12);
+        display: grid; grid-template-columns: repeat(4, 1fr);
+      }
+      .coverage-stat { border-bottom: none; padding-bottom: 0; }
+      .footer-top { grid-template-columns: 1fr 1fr 1fr; row-gap: 24px; }
+      .footer-col { border-right: none; min-height: auto; }
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        grid-template-columns: auto auto;
+        grid-template-areas: "brand actions" "menu menu";
+        padding: 12px 0 8px;
+      }
+      .brand { grid-area: brand; }
+      .nav-right { grid-area: actions; justify-self: end; }
+      .navlinks { grid-area: menu; }
+      .hero {
+        background-image:
+          linear-gradient(180deg, rgba(246,249,253,.96) 0%, rgba(246,249,253,.92) 35%, rgba(246,249,253,.68) 60%, rgba(246,249,253,.18) 100%),
+          url("assets/cta.webp");
+        background-position: 64% center;
+      }
+      .hero-inner { min-height: 760px; align-items: flex-start; padding-top: 44px; }
+      .hero-copy { max-width: 100%; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .trust-item { min-height: 72px; }
+      .trust-slogan { padding: 16px 18px 20px; }
+      .section-header { flex-direction: column; }
+      .card-grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .dual-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .container { width: min(100% - 24px, 1320px); }
+      h1 { font-size: 54px; }
+      .hero-copy p { font-size: 17px; }
+      .btn-primary, .btn-outline { padding: 13px 18px; }
+      .card-grid-5 { grid-template-columns: 1fr; }
+      .coverage-stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .feature-card { grid-template-columns: 1fr; }
+      .feature-image {
+        min-height: 210px;
+      }
+      .feature-copy {
+        background: rgba(248,251,255,.96);
+      }
+      .feature-card.dark .feature-copy {
+        background: rgba(7,34,64,.92);
+      }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-col { padding: 0 0 18px; border-bottom: 1px solid var(--line); }
+      .footer-col:last-child { border-bottom: none; }
+      .footer-bottom { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#"><img src="assets/logo.webp" alt="KNG Cargo" /></a>
+    <nav class="navlinks">
+      <a class="active" href="#">Inicio</a>
+      <a href="#empresa">Quiénes somos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#cargadores">Para cargadores</a>
+      <a href="#transportistas">Para transportistas</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-primary" href="#contacto">Solicitar transporte →</a>
+      <span class="lang">ES ▼</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="empresa">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">TRANSPORTE SIN FRONTERAS</div>
+        <h1>Tu carga,<br>nuestro compromiso</h1>
+        <p>Soluciones de transporte nacional e internacional. Conectamos empresas en toda Europa con un servicio ágil, fiable y personalizado.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contacto">Solicitar transporte →</a>
+          <a class="btn btn-outline" href="#servicios">Conocer más</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trustbar">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <span>Respuesta rápida</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><path d="M9.5 12.5l1.8 1.8 3.8-4.3"/></svg></div>
+        <span>Red de transportistas fiable</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11z"/><circle cx="12" cy="10" r="2.3"/></svg></div>
+        <span>Seguimiento en tiempo real</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><circle cx="18" cy="9" r="2"/><path d="M16 20c.4-1.9 1.9-3.2 4-3.9"/></svg></div>
+        <span>Trato directo y personalizado</span>
+      </div>
+      <div class="trust-slogan">PEOPLE<br>CARGO<br>OPPORTUNITIES<br>FURTHER</div>
+    </div>
+  </div>
+
+  <section class="services" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="section-tag">NUESTROS SERVICIOS</div>
+          <h2>Soluciones logísticas<br>a la medida de tu <span class="accent">negocio</span></h2>
+          <p>Nos encargamos de todo el proceso de transporte, desde la planificación hasta la entrega, con un enfoque en la eficiencia, la seguridad y la confianza.</p>
+        </div>
+        <a class="section-link" href="#servicios">Ver todos los servicios →</a>
+      </div>
+
+      <div class="card-grid-5">
+        <article class="service-card"><div class="service-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="22" width="28" height="18" rx="2"></rect><path d="M36 28h10l8 8v4H36z"></path><circle cx="22" cy="46" r="5"></circle><circle cx="48" cy="46" r="5"></circle></svg></div><h3>Transporte completo (FTL)</h3><p>Soluciones rápidas y seguras para cargas completas.</p></article>
+        <article class="service-card"><div class="service-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="34" width="40" height="10" rx="2"></rect><rect x="18" y="24" width="10" height="10"></rect><rect x="32" y="24" width="10" height="10"></rect><rect x="25" y="14" width="10" height="10"></rect></svg></div><h3>Grupaje (LTL)</h3><p>Optimiza tus costes con nuestro servicio de grupaje.</p></article>
+        <article class="service-card"><div class="service-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="18"></circle><path d="M14 32h36M32 14a30 30 0 0 1 0 36M32 14a30 30 0 0 0 0 36"></path></svg></div><h3>Transporte internacional</h3><p>Especialistas en España – Francia y toda Europa.</p></article>
+        <article class="service-card"><div class="service-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="34" r="16"></circle><path d="M32 34V22M32 34l9 5"></path><path d="M18 12l4 6M46 12l-4 6"></path></svg></div><h3>Cargas urgentes</h3><p>Cuando el tiempo importa, respondemos.</p></article>
+        <article class="service-card"><div class="service-icon"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="10" width="28" height="40" rx="2"></rect><path d="M24 20h16M24 28h16M24 36h10"></path></svg></div><h3>Gestión integral</h3><p>Nos ocupamos de toda la operativa, documentación y seguimiento.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cobertura">
+    <div class="container coverage-wrap">
+      <div class="coverage-grid">
+        <div class="coverage-copy">
+          <div class="section-tag">COBERTURA</div>
+          <h3>Conectamos<br>España, Francia<br>y toda Europa</h3>
+          <p>Desde nuestra base en Catalunya, operamos rutas nacionales e internacionales con una amplia red de colaboradores.</p>
+          <a class="btn btn-outline" href="#cobertura">Ver cobertura →</a>
+        </div>
+        <div class="coverage-image"></div>
+        <div class="coverage-stats">
+          <div class="coverage-stat"><strong>+1.000</strong><span>operaciones gestionadas</span></div>
+          <div class="coverage-stat"><strong>24/7</strong><span>atención y seguimiento</span></div>
+          <div class="coverage-stat"><strong>+200</strong><span>transportistas colaboradores</span></div>
+          <div class="coverage-stat"><strong>100%</strong><span>comprometidos con tu carga</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container dual-grid">
+      <article class="feature-card" id="cargadores">
+        <div class="feature-copy">
+          <div class="section-tag">PARA CARGADORES</div>
+          <h3>Solicita tu transporte</h3>
+          <p>Cuéntanos qué necesitas y te daremos una solución a medida en el menor tiempo posible.</p>
+          <a class="btn btn-primary" href="#contacto">Solicitar ahora →</a>
+        </div>
+        <div class="feature-image warehouse"></div>
+      </article>
+
+      <article class="feature-card dark" id="transportistas" style="background:#0b2b55;">
+        <div class="feature-copy">
+          <div class="section-tag">PARA TRANSPORTISTAS</div>
+          <h3>Únete a nuestra red</h3>
+          <p>Trabaja con un equipo serio, pagos puntuales y cargas durante todo el año.</p>
+          <a class="btn btn-outline" href="#contacto">Alta de transportista →</a>
+        </div>
+        <div class="feature-image network"></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <img src="assets/logo-footer.webp" alt="KNG Cargo" />
+        <div class="footer-small">PEOPLE CARGO OPPORTUNITIES FURTHER</div>
+      </div>
+      <div class="footer-col"><div class="footer-contact"><div>📍 Barcelona, España</div><div>📞 Contacto telefónico próximamente</div><div>✉️ Email corporativo próximamente</div></div></div>
+      <div class="footer-col"><div class="footer-list"><a href="#">Inicio</a><a href="#empresa">Quiénes somos</a><a href="#servicios">Servicios</a><a href="#cobertura">Cobertura</a></div></div>
+      <div class="footer-col"><div class="footer-list"><a href="#cargadores">Para cargadores</a><a href="#transportistas">Para transportistas</a><a href="#contacto">Contacto</a></div></div>
+      <div class="footer-col"><div class="social-row"><div class="social">in</div><div class="social">▶</div></div><div class="follow">Síguenos<br>@kngcargo</div></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 KNG Cargo. Todos los derechos reservados.</div>
+      <nav><a href="#">Política de privacidad</a><a href="#">Aviso legal</a><a href="#">Cookies</a></nav>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
