@@ -14,7 +14,6 @@ Esta carpeta está preparada para publicarse directamente con GitHub Pages.
 En **Settings → Pages → Custom domain**, escribe tu dominio cuando lo tengas. GitHub te indicará los registros DNS que debes configurar en tu proveedor de dominio. Activa **Enforce HTTPS** cuando esté disponible.
 
 ## Antes de lanzar definitivamente
-- Confirmar que `+34 932 123 456` es el teléfono real.
-- Confirmar que `info@kngcargo.com` es el email real.
+- Contacto actual: `transport@kngcargo.es`, Cardedeu. Sin teléfono publicado por ahora.
 - Crear/enlazar Política de privacidad, Aviso legal y Cookies. Esos enlaces siguen sin contenido porque faltan los datos legales de la empresa.
 - Cuando conozcas el dominio definitivo, añadir `canonical` y `og:url` al `<head>`.
